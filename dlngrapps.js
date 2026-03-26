@@ -4,71 +4,93 @@ const galleryDots = document.querySelectorAll(".gallery-dot");
 const galleryPrev = document.getElementById("gallery-prev");
 const galleryNext = document.getElementById("gallery-next");
 const appDetails = {
-  flow: {
-    title: "DLNGR Flow",
-    description: "A focused planning hub that helps teams map work, assign ownership, and keep delivery visible.",
+  xp: {
+    title: "DLNGR-XP",
+    description: "A dedicated review space where the DLNGR community can post reactions, experiences, and ratings about apps across the universe.",
     points: [
-      "Shared workspaces for team planning",
-      "Milestone tracking and progress views",
-      "Designed for quick onboarding"
+      "Uses the same DLNGR account ecosystem",
+      "Built for public reviews and community feedback",
+      "Created as a fresh expansion of the DLNGR platform"
     ],
-    adoption: "82%",
-    fit: "Operations Teams"
+    adoption: "Community Launch",
+    fit: "Reviews And Feedback"
   },
-  pulse: {
-    title: "DLNGR Pulse",
-    description: "A live analytics app that turns raw product and customer data into readable decision signals.",
+  privechat: {
+    title: "PriveChat-DLNGR",
+    description: "A more private and focused messaging experience for direct conversations across the DLNGR platform.",
     points: [
-      "Custom KPI dashboards",
-      "Performance summaries in real time",
-      "Trend spotting for growth teams"
+      "Private one-to-one chat flow",
+      "Built for more focused conversations",
+      "Part of the current live DLNGR lineup"
     ],
-    adoption: "76%",
-    fit: "Growth Leads"
+    adoption: "Live Messaging",
+    fit: "Direct Conversations"
   },
-  cart: {
-    title: "DLNGR Cart",
-    description: "A commerce-ready toolkit that helps brands launch storefronts faster and optimize buying journeys.",
+  ai: {
+    title: "DLNGR-AI",
+    description: "An artificial intelligence experience from DLNGR Studios designed for conversation, ideas, and task support.",
     points: [
-      "Fast product setup",
-      "Conversion-focused checkout flow",
-      "Flexible campaign support"
+      "Conversation-first AI interface",
+      "Idea support and task help",
+      "Flagship DLNGR intelligence product"
     ],
-    adoption: "69%",
-    fit: "Retail Brands"
+    adoption: "Flagship AI",
+    fit: "Intelligent Assistance"
   },
-  studio: {
-    title: "DLNGR Studio",
-    description: "A creative operations platform that helps content teams organize assets and speed up approvals.",
+  openchat: {
+    title: "DLNGR CHAT",
+    description: "A more open platform for sharing thoughts and ideas with others in the wider DLNGR community.",
     points: [
-      "Asset libraries with review history",
-      "Feedback loops for design teams",
-      "Version clarity across campaigns"
+      "Open conversation format",
+      "Made for broad community interaction",
+      "Fast entry point into the DLNGR network"
     ],
-    adoption: "74%",
-    fit: "Creative Teams"
+    adoption: "Community Ready",
+    fit: "Open Chatting"
   },
-  sync: {
-    title: "DLNGR Sync",
-    description: "A fast internal communication layer for sharing updates, announcements, and action items.",
+  system: {
+    title: "DLNGR System",
+    description: "A structured planning and productivity experience that helps organize daily work and activities.",
     points: [
-      "Team channels with clean summaries",
-      "Update distribution across departments",
-      "Focused communication without clutter"
+      "Task planning and record handling",
+      "Built to simplify daily workflow",
+      "Productivity-focused DLNGR tool"
     ],
-    adoption: "80%",
-    fit: "Internal Comms"
+    adoption: "Productivity Core",
+    fit: "Planning And Workflow"
   },
-  signal: {
-    title: "DLNGR Signal",
-    description: "An event intelligence app that surfaces meaningful changes across product, ops, and campaign activity.",
+  manga: {
+    title: "DLNGR Manga",
+    description: "A creative reading destination for manga projects and visual storytelling built inside DLNGR.",
     points: [
-      "Event-based alert monitoring",
-      "Cross-channel behavior tracking",
-      "Early warnings on performance shifts"
+      "Creative storytelling space",
+      "Visual-first reading experience",
+      "Long-running DLNGR creative project"
     ],
-    adoption: "71%",
-    fit: "Data Teams"
+    adoption: "Creative Library",
+    fit: "Readers And Creators"
+  },
+  jarvis: {
+    title: "DLNGR-Jarvis",
+    description: "An assistant-style DLNGR experience shaped around voice-inspired task support and guided automation.",
+    points: [
+      "Assistant-driven workflows",
+      "Task support with DLNGR branding",
+      "One of the earlier DLNGR intelligence projects"
+    ],
+    adoption: "Assistant Stack",
+    fit: "Guided Automation"
+  },
+  games: {
+    title: "DLNGR-Games",
+    description: "A gaming-focused DLNGR release aimed at bringing a more experimental play experience to Windows users.",
+    points: [
+      "Windows-first release",
+      "Gameplay-focused DLNGR project",
+      "Built to expand the DLNGR universe beyond tools"
+    ],
+    adoption: "Playable Build",
+    fit: "Gaming Audience"
   }
 };
 const detailButtons = document.querySelectorAll(".card-link");
@@ -150,29 +172,30 @@ galleryTrack?.addEventListener("touchend", (event) => {
 renderSlide(0);
 restartAutoSlide();
 
-detailButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const detail = appDetails[button.dataset.app];
+function renderSpotlight(detailKey) {
+  const detail = appDetails[detailKey];
 
-    if (!detail) {
-      return;
-    }
+  if (!detail) {
+    return;
+  }
 
-    spotlightTitle.textContent = detail.title;
-    spotlightDescription.textContent = detail.description;
-    spotlightAdoption.textContent = detail.adoption;
-    spotlightFit.textContent = detail.fit;
+  spotlightTitle.textContent = detail.title;
+  spotlightDescription.textContent = detail.description;
+  spotlightAdoption.textContent = detail.adoption;
+  spotlightFit.textContent = detail.fit;
 
-    spotlightPoints.innerHTML = "";
-    detail.points.forEach((point) => {
-      const item = document.createElement("li");
-      item.textContent = point;
-      spotlightPoints.appendChild(item);
-    });
-
-    document.getElementById("spotlight").scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+  spotlightPoints.innerHTML = "";
+  detail.points.forEach((point) => {
+    const item = document.createElement("li");
+    item.textContent = point;
+    spotlightPoints.appendChild(item);
   });
+}
+
+detailButtons.forEach((button) => {
+  const detailKey = button.dataset.app;
+
+  button.addEventListener("mouseenter", () => renderSpotlight(detailKey));
+  button.addEventListener("focus", () => renderSpotlight(detailKey));
+  button.addEventListener("touchstart", () => renderSpotlight(detailKey), { passive: true });
 });
