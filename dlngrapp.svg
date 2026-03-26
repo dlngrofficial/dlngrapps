@@ -1,0 +1,35 @@
+<svg width="960" height="320" viewBox="0 0 960 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="frameGlow" x1="40" y1="48" x2="920" y2="272" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#63B7FF"/>
+      <stop offset="0.5" stop-color="#F7FBFF"/>
+      <stop offset="1" stop-color="#FF4343"/>
+    </linearGradient>
+    <linearGradient id="accentFill" x1="420" y1="78" x2="744" y2="242" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6D6D"/>
+      <stop offset="1" stop-color="#FF2F2F"/>
+    </linearGradient>
+    <filter id="softGlow" x="0" y="0" width="960" height="320" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="320" rx="44" fill="#F7FAFF"/>
+
+  <g filter="url(#softGlow)" opacity="0.5">
+    <rect x="26" y="34" width="908" height="252" rx="38" stroke="url(#frameGlow)" stroke-width="6"/>
+  </g>
+
+  <rect x="38" y="46" width="884" height="228" rx="34" stroke="url(#frameGlow)" stroke-width="4"/>
+
+  <text x="88" y="192" fill="#162033" font-family="Inter, Arial, sans-serif" font-size="126" font-weight="800" letter-spacing="-5">DL</text>
+
+  <rect x="346" y="78" width="368" height="164" rx="28" fill="url(#accentFill)"/>
+  <text x="386" y="192" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="118" font-weight="800" letter-spacing="-5">NGR</text>
+
+  <text x="752" y="138" fill="#607089" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="2">REVIEWS</text>
+  <text x="752" y="184" fill="#8A95A8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="1.2">REAL VOICES</text>
+  <text x="752" y="214" fill="#8A95A8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="1.2">DLNGR COMMUNITY</text>
+</svg>
