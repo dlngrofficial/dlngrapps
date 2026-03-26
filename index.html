@@ -13,22 +13,53 @@
   <div class="page-shell">
     <header class="hero">
       <nav class="topbar">
-        <div class="brand">
+        <a class="brand" href="#top" aria-label="DLNGR Apps home">
           <span class="brand-mark">DLA</span>
           <div>
             <p class="eyebrow">DLNGR STUDIOS</p>
             <h1>DLNGR Apps</h1>
           </div>
+        </a>
+        <div class="topbar-links">
+          <a class="top-link muted" href="#spotlight">Spotlight</a>
+          <a class="top-link" href="#apps">Explore Apps</a>
         </div>
-        <a class="top-link" href="#apps">Explore Apps</a>
       </nav>
 
-      <div class="hero-grid">
+      <div class="hero-grid" id="top">
         <section class="hero-copy">
-          <p class="hero-kicker">Apps Built By Udit Vishwakarma</p>
+          <p class="hero-kicker">Built By Udit Vishwakarma</p>
+          <h2>DLNGR-APPS Built.</h2>
+
+
+          <div class="hero-actions">
+            <a class="button primary" href="#apps">Browse Collection</a>
+            <a class="button secondary" href="#spotlight">View Spotlight</a>
+          </div>
+
+          <div class="hero-stats">
+            <article>
+              <span>08</span>
+              <p>Apps and launches featured in the current showcase.</p>
+            </article>
+            <article>
+              <span>Live</span>
+              <p>Chat, review, AI, manga, and games available in one ecosystem.</p>
+            </article>
+            <article>
+              <span>DLNGR</span>
+              <p>Unified visual system with a stronger studio-style presentation.</p>
+            </article>
+          </div>
+        </section>
+
+        <aside class="hero-visual">
           <div class="hero-gallery-shell">
             <div class="hero-gallery-head">
-              <h2>Apps</h2>
+              <div>
+                <p class="eyebrow">Featured Posters</p>
+                <h3>Current Highlights</h3>
+              </div>
               <div class="gallery-controls">
                 <button class="gallery-button" id="gallery-prev" aria-label="Previous slide">Prev</button>
                 <button class="gallery-button" id="gallery-next" aria-label="Next slide">Next</button>
@@ -38,65 +69,45 @@
             <div class="gallery-frame">
               <div class="gallery-track" id="gallery-track">
                 <article class="gallery-slide">
-                  <img
-                    src="https://dlngrofficial.free.nf/dlngrai.jpg"
-                    alt="DLNGR app preview 1"
-                  >
+                  <img src="https://dlngrofficial.free.nf/dlngrai.jpg" alt="DLNGR AI poster">
                   <div class="gallery-caption">
                     <span>01</span>
-                    <h3>DLNGR-AI</h3>
+                    <h3>DLNGR AI</h3>
                   </div>
                 </article>
                 <article class="gallery-slide">
-                  <img
-                    src="https://dlngrofficial.free.nf/mm.jpg"
-                    alt="DLNGR app preview 2"
-                  >
+                  <img src="https://dlngrofficial.free.nf/mm.jpg" alt="DLNGR Manga poster">
                   <div class="gallery-caption">
                     <span>02</span>
                     <h3>DLNGR Manga</h3>
                   </div>
                 </article>
-                                <article class="gallery-slide">
-                  <img
-                  src="https://cdn.dribbble.com/userupload/27069479/file/original-27ffd4263bacaaacf46e43427621e890.gif"
-                  alt="Temporary DLNGR app preview 1"
-                  >
+                <article class="gallery-slide">
+                  <img src="https://cdn.dribbble.com/userupload/27069479/file/original-27ffd4263bacaaacf46e43427621e890.gif" alt="DLNGR System poster">
                   <div class="gallery-caption">
                     <span>03</span>
-                    <h3>DLNGR-system</h3>
+                    <h3>DLNGR System</h3>
                   </div>
                 </article>
                 <article class="gallery-slide">
-                  <img
-                  src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/755/550/datas/original.gif"
-                  alt="Temporary DLNGR app preview 2"
-                  >
+                  <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/755/550/datas/original.gif" alt="DLNGR Jarvis poster">
                   <div class="gallery-caption">
                     <span>04</span>
                     <h3>DLNGR Jarvis</h3>
                   </div>
                 </article>
-
                 <article class="gallery-slide">
-                  <img
-                  src="https://dlngrofficial.free.nf/dlnc.jpg"
-                  alt="Temporary DLNGR app preview 3"
-                  >
+                  <img src="https://dlngrofficial.free.nf/dlnc.jpg" alt="DLNGR Chat poster">
                   <div class="gallery-caption">
                     <span>05</span>
-                    <h3>DLNGR-CHAT</h3>
+                    <h3>DLNGR Chat</h3>
                   </div>
                 </article>
-
                 <article class="gallery-slide">
-                  <img
-                  src="https://dlngrofficial.free.nf/logogame.jpg"
-                  alt="Temporary DLNGR app preview 3"
-                  >
+                  <img src="https://dlngrofficial.free.nf/logogame.jpg" alt="DLNGR Games poster">
                   <div class="gallery-caption">
                     <span>06</span>
-                    <h3>DLNGR-Games</h3>
+                    <h3>DLNGR Games</h3>
                   </div>
                 </article>
               </div>
@@ -106,83 +117,153 @@
               <button class="gallery-dot active" data-slide="0" aria-label="Go to slide 1"></button>
               <button class="gallery-dot" data-slide="1" aria-label="Go to slide 2"></button>
               <button class="gallery-dot" data-slide="2" aria-label="Go to slide 3"></button>
+              <button class="gallery-dot" data-slide="3" aria-label="Go to slide 4"></button>
+              <button class="gallery-dot" data-slide="4" aria-label="Go to slide 5"></button>
+              <button class="gallery-dot" data-slide="5" aria-label="Go to slide 6"></button>
             </div>
           </div>
-          <div class="hero-actions">
-            <a class="button primary" href="#apps">Browse Collection</a>
-            <a class="button secondary" href="#spotlight">View Spotlight</a>
-          </div>
-        </section>
+        </aside>
       </div>
     </header>
-    
-    <main>
 
+    <main>
       <section class="filters" id="apps">
         <div>
-          <p class="eyebrow">Explore DLNGR Universe.</p>
-          <h2>List Of All DLNGR Apps</h2>
+          <p class="eyebrow">Explore DLNGR Universe</p>
+          <h2>Every DLNGR app in one cleaner launchpad.</h2>
         </div>
+        <p class="section-note">
+          Faster scanning, richer cards, stronger contrast, and the same app identities you already use.
+        </p>
       </section>
-      
+
       <section class="apps-grid">
-        <article class="app-card" data-category="commerce">
-          <span class="tag commerce">Conversation</span>
-          <h3>PriveChat-DLNGR</h3>
-          <p>A private chatting website, Now chat with end-to-end encryption.</p>
-          <p>Launch Date: 25|03|2026.</p>
-          <a href="https://dlngrofficial.github.io/dlngrchat2/privechat.html"><button class="card-link" type="button" data-app="cart">Visit Now</button></a>
+        <article class="app-card featured" data-category="community">
+          <div class="app-card-media logo-panel">
+            <img src="https://dlngrofficial.github.io/dlngrapps/dlngrapp.svg" alt="DLNGR XP logo">
+          </div>
+          <div class="app-card-body">
+            <span class="tag commerce">DLNGR Studios</span>
+            <h3>DLNGR-XP</h3>
+            <p>Post community-based reviews and reactions about your experience while exploring the DLNGR universe.</p>
+            <div class="app-meta">
+              <span>Launch Date: 28|03|2026</span>
+              <span>Community Reviews</span>
+            </div>
+            <a class="card-link" href="https://dlngrofficial.github.io/dlngrchat2/dlngrreview.html" data-app="xp">Visit Now</a>
+          </div>
+        </article>
+
+        <article class="app-card featured" data-category="conversation">
+          <div class="app-card-media">
+            <img src="https://dlngrofficial.github.io/dlngrapps/privechat.png" alt="PriveChat poster">
+          </div>
+          <div class="app-card-body">
+            <span class="tag commerce">Conversation</span>
+            <h3>PriveChat-DLNGR</h3>
+            <p>A private chatting experience built for more focused one-to-one conversations inside the DLNGR network.</p>
+            <div class="app-meta">
+              <span>Launch Date: 25|03|2026</span>
+              <span>Private Messaging</span>
+            </div>
+            <a class="card-link" href="https://dlngrofficial.github.io/dlngrchat2/privechat.html" data-app="privechat">Visit Now</a>
+          </div>
         </article>
 
         <article class="app-card" data-category="productivity">
-          <span class="tag productivity">DLNGR-Studios</span>
-          <h3>DLNGR-AI</h3>
-          <p>An artifical intelligence made by DLNGR-Studios use to perform basic conversation and tasks.</p>
-          <p>Launch Date: 23|02|2026.</p>
-        <a href="https://dlngr-ai.onrender.com/"><button class="card-link" type="button" data-app="sync">Visit Now</button></a>
+          <div class="app-card-media">
+            <img src="https://dlngrofficial.free.nf/dlngrai.jpg" alt="DLNGR AI poster">
+          </div>
+          <div class="app-card-body">
+            <span class="tag productivity">DLNGR Studios</span>
+            <h3>DLNGR-AI</h3>
+            <p>An artificial intelligence experience from DLNGR Studios designed for conversation, ideas, and task support.</p>
+            <div class="app-meta">
+              <span>Launch Date: 23|02|2026</span>
+              <span>AI Assistant</span>
+            </div>
+            <a class="card-link" href="https://dlngr-ai.onrender.com/" data-app="ai">Visit Now</a>
+          </div>
         </article>
 
         <article class="app-card" data-category="analytics">
-          <span class="tag analytics">Conversation</span>
-          <h3>DLNGR CHAT</h3>
-          <p>A common platform to share thoughts and ideas.</p>
-          <p>Launch Date: 02|10|2025.</p>
-          <a href="https://dlngrofficial.github.io/dlngrchat2/openchat.html"><button class="card-link" type="button" data-app="pulse">Visit Now</button></a>
+          <div class="app-card-media">
+            <img src="https://dlngrofficial.github.io/dlngrapps/DLNGR CHAT2.png" alt="DLNGR Chat poster">
+          </div>
+          <div class="app-card-body">
+            <span class="tag analytics">Conversation</span>
+            <h3>DLNGR CHAT</h3>
+            <p>A common platform to share thoughts, ideas, and community conversations in a more open format.</p>
+            <div class="app-meta">
+              <span>Launch Date: 02|10|2025</span>
+              <span>Open Community</span>
+            </div>
+            <a class="card-link" href="https://dlngrofficial.github.io/dlngrchat2/openchat.html" data-app="openchat">Visit Now</a>
+          </div>
         </article>
 
         <article class="app-card" data-category="productivity">
-          <span class="tag productivity">Productivity</span>
-          <h3>DLNGR System</h3>
-          <p>Task planning and collaboration space for distributed teams that need clarity fast.</p>
-          <p>Launch Date: 03|06|2024.</p>
-          <a href="https://dlngrofficial.free.nf/Welcome.html"><button class="card-link" type="button" data-app="flow">Visit Now</button></a>
+          <div class="app-card-media">
+            <img src="https://cdn.dribbble.com/userupload/27069479/file/original-27ffd4263bacaaacf46e43427621e890.gif" alt="DLNGR System poster">
+          </div>
+          <div class="app-card-body">
+            <span class="tag productivity">Productivity</span>
+            <h3>DLNGR System</h3>
+            <p>Task planning and structured workflow management for people who want daily organization in one place.</p>
+            <div class="app-meta">
+              <span>Launch Date: 03|06|2024</span>
+              <span>Planning Tools</span>
+            </div>
+            <a class="card-link" href="https://dlngrofficial.free.nf/Welcome.html" data-app="system">Visit Now</a>
+          </div>
         </article>
-        
-
 
         <article class="app-card" data-category="creative">
-          <span class="tag creative">Creative</span>
-          <h3>DLNGR Manga</h3>
-          <p>A place to view all the mangas made by DLNGR-Studios.</p>
-          <p>Launch Date: 04|02|2022.</p>
-        <a href="https://dlngrofficial.free.nf/manga.html"><button class="card-link" type="button" data-app="studio">Visit Now</button></a>
+          <div class="app-card-media">
+            <img src="https://dlngrofficial.free.nf/mm.jpg" alt="DLNGR Manga poster">
+          </div>
+          <div class="app-card-body">
+            <span class="tag creative">Creative</span>
+            <h3>DLNGR Manga</h3>
+            <p>A place to read and explore manga stories made inside the DLNGR creative space.</p>
+            <div class="app-meta">
+              <span>Launch Date: 04|02|2022</span>
+              <span>Storytelling</span>
+            </div>
+            <a class="card-link" href="https://dlngrofficial.free.nf/manga.html" data-app="manga">Visit Now</a>
+          </div>
         </article>
 
-
-        <article class="app-card" data-category="analytics">
-          <span class="tag analytics">DLNGR-Studios</span>
-          <h3>DLNGR-Jarvis</h3>
-          <p>An artifical assistance made by DLNGR-Studios, can perform tasks with the use of vocal commands.</p>
-          <p>Launch Date: 02|04|2023.</p>
-          <a href="https://dlngrofficial.free.nf/jarvis.html"><button class="card-link" type="button" data-app="signal">Visit Now</button></a>
+        <article class="app-card" data-category="assistant">
+          <div class="app-card-media">
+            <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/755/550/datas/original.gif" alt="DLNGR Jarvis poster">
+          </div>
+          <div class="app-card-body">
+            <span class="tag analytics">DLNGR Studios</span>
+            <h3>DLNGR-Jarvis</h3>
+            <p>An artificial assistant from DLNGR Studios with voice-style task support and automation-driven ideas.</p>
+            <div class="app-meta">
+              <span>Launch Date: 02|04|2023</span>
+              <span>Assistant Tools</span>
+            </div>
+            <a class="card-link" href="https://dlngrofficial.free.nf/jarvis.html" data-app="jarvis">Visit Now</a>
+          </div>
         </article>
 
-        <article class="app-card" data-category="analytics">
-          <span class="tag analytics">DLNGR-Studios</span>
-          <h3>DLNGR-Games</h3>
-          <p>Plform made by DLNGR-Studios to provide gaming experience.</p>
-          <p>Launch Date: 05|08|2025. Only For Windows Users</p>
-          <a href="https://drive.google.com/file/d/1QwkKEYMZPdlGMGVKCT8QtOSjSbUOMurl/view?usp=sharing"><button class="card-link" type="button" data-app="signal">Download Now</button></a>
+        <article class="app-card" data-category="games">
+          <div class="app-card-media">
+            <img src="https://dlngrofficial.free.nf/logogame.jpg" alt="DLNGR Games poster">
+          </div>
+          <div class="app-card-body">
+            <span class="tag creative">DLNGR Studios</span>
+            <h3>DLNGR-Games</h3>
+            <p>A DLNGR gaming release designed to bring a more experimental play experience to Windows users.</p>
+            <div class="app-meta">
+              <span>Launch Date: 05|08|2025</span>
+              <span>Windows Only</span>
+            </div>
+            <a class="card-link" href="https://drive.google.com/file/d/1QwkKEYMZPdlGMGVKCT8QtOSjSbUOMurl/view?usp=sharing" data-app="games">Download Now</a>
+          </div>
         </article>
       </section>
 
@@ -191,22 +272,22 @@
           <p class="eyebrow">Featured App</p>
           <h2 id="spotlight-title">DLNGR-AI</h2>
           <p id="spotlight-description">
-            Task planning and collaboration space for distributed teams that need clarity fast.
+            An artificial intelligence experience from DLNGR Studios designed for conversation, ideas, and task support.
           </p>
           <ul class="spotlight-points" id="spotlight-points">
-            <li>Shared workspaces for team planning</li>
-            <li>Milestone tracking and progress views</li>
-            <li>Designed for quick onboarding</li>
+            <li>Conversation-first AI interface</li>
+            <li>Fast idea support and task help</li>
+            <li>Built as a flagship DLNGR experience</li>
           </ul>
         </div>
         <div class="spotlight-metrics">
           <div class="metric-card">
-            <span>Adaptation</span>
-            <strong id="spotlight-adoption">82%</strong>
+            <span>Current Focus</span>
+            <strong id="spotlight-adoption">Flagship AI</strong>
           </div>
           <div class="metric-card">
             <span>Best For</span>
-            <strong id="spotlight-fit">Intelligent Automation</strong>
+            <strong id="spotlight-fit">Intelligent Assistance</strong>
           </div>
         </div>
       </section>
