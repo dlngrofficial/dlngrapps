@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DLNGR Reviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dlngrreview.css">
+</head>
+<body>
+  <div class="page-glow page-glow-left"></div>
+  <div class="page-glow page-glow-right"></div>
+  <button class="floating-menu-button" id="menuToggleButton" type="button" aria-label="Open menu">☰</button>
+
+  <section class="auth-view" id="authView">
+    <div class="auth-card">
+      <p class="eyebrow">DLNGR-XP</p>
+      <h1 id="authTitle">Welcome back</h1>
+      <p class="auth-copy" id="authSubtitle">Use your PriveChat account to post your review.</p>
+
+      <form class="auth-form" id="authForm">
+        <label class="field" id="authNameField" hidden>
+          <span>Full name</span>
+          <input id="authNameInput" type="text" placeholder="Your name">
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input id="authEmailInput" type="email" placeholder="you@example.com" required>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="authPasswordInput" type="password" placeholder="Minimum 6 characters" required>
+        </label>
+
+        <p class="auth-status" id="authStatus"></p>
+        <button class="cta-button" id="authSubmitButton" type="submit">Login</button>
+        <button class="text-button" id="authToggleButton" type="button">Need an account? Sign up</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="setup-banner" id="setupBanner" hidden>
+    Firebase config is missing. Add your project keys in <code>firebase-config.js</code>.
+  </div>
+
+  <main class="review-app" id="reviewApp" hidden>
+    <div class="review-sidebar-backdrop" id="reviewSidebarBackdrop" hidden></div>
+    <aside class="review-sidebar" id="reviewSidebar">
+      <div class="review-sidebar-head">
+        <div>
+          <p class="eyebrow">DLNGR Reviews</p>
+          <h2>Menu</h2>
+        </div>
+      </div>
+
+      <div class="review-sidebar-user">
+        <div class="profile-chip">
+          <div class="avatar-ring"><div class="avatar" id="sidebarUserAvatar">ME</div></div>
+          <div>
+            <strong id="sidebarUserName">User</strong>
+            <p id="sidebarUserHandle">Signed in</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="review-sidebar-nav" aria-label="Review menu">
+        <a class="review-nav-item" href="https://dlngrofficial.github.io/dlngrapps/">
+          <span>Explore DLNGR</span>
+        </a>
+        <button class="review-nav-item" id="writeReviewNavButton" type="button">
+          <span>Write a review</span>
+        </button>
+      </nav>
+
+      <button class="ghost-button sidebar-logout" id="sidebarLogoutButton" type="button">Logout</button>
+    </aside>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">DLNGR Community</p>
+        <h1>DLNGR-XP</h1>
+        <p>Post us your review related to DLNGR Universe experiences.</p>
+      </div>
+      <div class="hero-user">
+        <div class="profile-chip">
+          <div class="avatar-ring"><div class="avatar" id="currentUserAvatar">ME</div></div>
+          <div>
+            <strong id="currentUserName">User</strong>
+            <p id="currentUserHandle">Signed in</p>
+          </div>
+        </div>
+        <button class="ghost-button" id="logoutButton" type="button">Logout</button>
+      </div>
+    </header>
+
+    <section class="review-layout">
+      <aside class="review-panel composer-panel" id="composerPanel">
+        <div class="panel-head">
+          <h2>Write a Review</h2>
+          <span>DLNGR-STUDIOS</span>
+        </div>
+
+        <form class="review-form" id="reviewForm">
+          <label class="field">
+            <span>Rating</span>
+            <select id="reviewRating" required>
+              <option value="5">5 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="2">2 Stars</option>
+              <option value="1">1 Star</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Headline</span>
+            <input id="reviewTitle" type="text" maxlength="80" placeholder="Short title for your review" required>
+          </label>
+
+          <label class="field">
+            <span>Your thoughts</span>
+            <textarea id="reviewText" rows="7" maxlength="1200" placeholder="Share your view about DLNGR..." required></textarea>
+          </label>
+
+          <p class="form-status" id="reviewStatus"></p>
+          <button class="cta-button" type="submit" id="publishButton">Publish review</button>
+        </form>
+      </aside>
+
+      <section class="review-panel feed-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Latest Reviews</h2>
+            <span id="reviewCountLabel">Community feed</span>
+          </div>
+        </div>
+
+        <div class="review-feed" id="reviewFeed"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="dlngrreview.js"></script>
+</body>
+</html>
