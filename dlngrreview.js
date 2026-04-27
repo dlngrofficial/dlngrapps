@@ -47,6 +47,7 @@
   let auth = null;
   let db = null;
   let reviewsUnsubscribe = null;
+  let globalSessionUnsubscribe = null;
   let isSidebarOpen = false;
 
   function isConfigMissing() {
@@ -323,6 +324,38 @@
     });
   }
 
+  function didSessionStartBeforeControl(user, control) {
+    if (!user || !control || !control.issuedAt) return false;
+    try {
+      const issuedAt = control.issuedAt.toDate ? control.issuedAt.toDate() : new Date(control.issuedAt);
+      const lastSignIn = user.metadata && user.metadata.lastSignInTime ? new Date(user.metadata.lastSignInTime) : null;
+      if (!lastSignIn || Number.isNaN(lastSignIn.getTime()) || Number.isNaN(issuedAt.getTime())) return false;
+      return lastSignIn.getTime() <= issuedAt.getTime();
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function startGlobalSessionListener() {
+    if (globalSessionUnsubscribe) {
+      globalSessionUnsubscribe();
+    }
+
+    globalSessionUnsubscribe = db.collection("adminControls").doc("globalSession").onSnapshot(function (snapshot) {
+      if (!snapshot.exists || !state.currentUser || (state.currentProfile && state.currentProfile.email === CREATOR_EMAIL)) {
+        return;
+      }
+
+      const control = snapshot.data();
+      if (!didSessionStartBeforeControl(state.currentUser, control)) {
+        return;
+      }
+
+      setAuthStatus("You were signed out by the creator across DLNGR apps.");
+      auth.signOut();
+    });
+  }
+
   function initFirebase() {
     if (isConfigMissing()) {
       setupBanner.hidden = false;
@@ -343,6 +376,10 @@
           reviewsUnsubscribe();
           reviewsUnsubscribe = null;
         }
+        if (globalSessionUnsubscribe) {
+          globalSessionUnsubscribe();
+          globalSessionUnsubscribe = null;
+        }
         return;
       }
 
@@ -352,6 +389,7 @@
         .then(function () {
           setAuthenticatedUi(true);
           startReviewsListener();
+          startGlobalSessionListener();
         })
         .catch(function (error) {
           setAuthStatus(error.message || "Could not load account.");
