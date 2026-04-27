@@ -48,6 +48,7 @@
   let db = null;
   let reviewsUnsubscribe = null;
   let globalSessionUnsubscribe = null;
+  let userKickoutUnsubscribe = null;
   let isSidebarOpen = false;
 
   function isConfigMissing() {
@@ -356,6 +357,29 @@
     });
   }
 
+  function startUserKickoutListener() {
+    if (userKickoutUnsubscribe) {
+      userKickoutUnsubscribe();
+    }
+
+    userKickoutUnsubscribe = db.collection("adminControls").doc("userKickout").onSnapshot(function (snapshot) {
+      if (!snapshot.exists || !state.currentUser || (state.currentProfile && state.currentProfile.email === CREATOR_EMAIL)) {
+        return;
+      }
+
+      const control = snapshot.data();
+      if (!control || control.targetUid !== state.currentUser.uid) {
+        return;
+      }
+      if (!didSessionStartBeforeControl(state.currentUser, control)) {
+        return;
+      }
+
+      setAuthStatus("You were logged out by the creator across DLNGR apps.");
+      auth.signOut();
+    });
+  }
+
   function initFirebase() {
     if (isConfigMissing()) {
       setupBanner.hidden = false;
@@ -380,6 +404,10 @@
           globalSessionUnsubscribe();
           globalSessionUnsubscribe = null;
         }
+        if (userKickoutUnsubscribe) {
+          userKickoutUnsubscribe();
+          userKickoutUnsubscribe = null;
+        }
         return;
       }
 
@@ -390,6 +418,7 @@
           setAuthenticatedUi(true);
           startReviewsListener();
           startGlobalSessionListener();
+          startUserKickoutListener();
         })
         .catch(function (error) {
           setAuthStatus(error.message || "Could not load account.");
